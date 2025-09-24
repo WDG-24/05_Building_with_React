@@ -108,6 +108,12 @@ img {
     margin: 2rem 5rem;
   }
 }
+a:has(.star) {
+  display: grid;
+  grid-row: span 3;
+
+  grid-template-rows: subgrid;
+}
 
 .star {
   min-width: 35.5rem;
@@ -154,8 +160,7 @@ img {
   }
 }
 
-/* single card after view transition */
-.star:not(:has(+ .star)):first-of-type {
+a:has(.star):not(:has(+ a .star)):first-of-type {
   margin: 0 auto;
   max-width: 100rem;
   grid-template-rows: auto;
