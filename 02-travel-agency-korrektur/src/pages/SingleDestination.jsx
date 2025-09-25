@@ -1,6 +1,11 @@
+import { useOutletContext, useParams } from 'react-router';
+
 const SingleDestination = () => {
-  // TODO: Füge dynamischen Parameter hinzu
-  const slug = 'berlin';
+  // URL http://bblalb.com/destinations/berlin
+
+  const { slug } = useParams();
+  const destinations = useOutletContext();
+
   const destination = destinations.find((d) => d.slug === slug);
 
   if (!destination) {

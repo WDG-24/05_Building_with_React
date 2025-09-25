@@ -1,8 +1,8 @@
+import { useOutletContext } from 'react-router';
 import { DestinationCard } from '../components';
 
 const Destinations = () => {
-  // TODO: Hole Daten aus dem Outlet-Context
-  const destinations = [];
+  const destinations = useOutletContext();
   return (
     <div className='space-y-10 px-4 max-w-7xl mx-auto'>
       <section className='text-center space-y-2'>

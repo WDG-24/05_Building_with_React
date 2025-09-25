@@ -1,20 +1,13 @@
-import { useEffect, useState } from 'react';
 import { DestinationCard } from '../components';
+import { useNavigate, useOutletContext } from 'react-router';
 
 const Home = () => {
-  const [destinations, setDestinations] = useState(null);
+  const destinations = useOutletContext();
+  const navigate = useNavigate();
 
-  // TODO: Nutze Layout und Outlet-Context
-  useEffect(() => {
-    fetch('/travel.json')
-      .then((res) => res.json())
-      .then((data) => setDestinations(data));
-  }, []);
-
-  // TODO: Navigiere zu /destinations
   const handleSearch = (e) => {
     e.preventDefault();
-    alert('Handle Search!');
+    navigate('/destinations');
   };
 
   return (

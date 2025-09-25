@@ -1,5 +1,6 @@
+import { NavLink } from 'react-router';
+
 const NavBar = () => {
-  // TODO: NavLinks statt <a> -> React Router active class und TW
   return (
     <div className='navbar bg-base-100 shadow-sm'>
       <div className='flex-1'>
@@ -10,16 +11,24 @@ const NavBar = () => {
       <nav className='flex-none'>
         <ul className='menu menu-horizontal px-1'>
           <li>
-            <a href='/'>Home</a>
+            <NavLink to='/' className={({ isActive }) => (isActive ? 'underline underline-offset-2' : '')}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <a href='/about'>About</a>
+            <NavLink to='/about' className={({ isActive }) => (isActive ? 'underline underline-offset-2' : '')}>
+              About
+            </NavLink>
           </li>
           <li>
-            <a href='/destinations'>Destinations</a>
+            <NavLink to='/destinations' className={({ isActive }) => (isActive ? 'underline underline-offset-2' : '')}>
+              Destinations
+            </NavLink>
           </li>
           <li>
-            <a href='/contact'>Contact</a>
+            <NavLink to='/contact' className={({ isActive }) => (isActive ? 'underline underline-offset-2' : '')}>
+              Contact
+            </NavLink>
           </li>
         </ul>
       </nav>
