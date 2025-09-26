@@ -1,16 +1,23 @@
+import { useContext } from 'react';
 import { useState } from 'react';
+// import TodoContextProvider, { TodoContext } from '../contexts/TodoContext.jsx';
+import { TodoReducerContext } from '../contexts/ToDoReducerContext.jsx';
 
-const AddToDo = ({ setTodos }) => {
+const AddToDo = () => {
   const [newTodo, setNewTodo] = useState('');
 
-  const handleSubmit = e => {
+  // const { setTodos } = useContext(TodoContext);
+  const { addTodo } = useContext(TodoReducerContext);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!newTodo.trim()) return alert('Please enter a to-do item');
-    setTodos(prevTodos => {
-      const toDos = [{ id: Date.now(), text: newTodo, completed: false }, ...prevTodos];
-      localStorage.setItem('todos', JSON.stringify(toDos));
-      return toDos;
-    });
+    // setTodos((prevTodos) => {
+    //   const toDos = [{ id: Date.now(), text: newTodo, completed: false }, ...prevTodos];
+    //   localStorage.setItem('todos', JSON.stringify(toDos));
+    //   return toDos;
+    // });
+    addTodo(newTodo);
     setNewTodo('');
   };
 
@@ -20,7 +27,7 @@ const AddToDo = ({ setTodos }) => {
         type='text'
         name='todo'
         value={newTodo}
-        onChange={e => setNewTodo(e.target.value)}
+        onChange={(e) => setNewTodo(e.target.value)}
         placeholder='Add a new to-do'
         className='flex-1 border rounded px-2 py-1 mr-2'
       />
