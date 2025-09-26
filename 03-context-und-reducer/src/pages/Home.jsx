@@ -2,7 +2,7 @@ import { DestinationCard } from '../components';
 import { useNavigate, useOutletContext } from 'react-router';
 
 const Home = () => {
-  const destinations = useOutletContext();
+  const { destinations, theme } = useOutletContext();
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -59,6 +59,7 @@ const Home = () => {
               image={destination.image}
               text={destination.description}
               slug={destination.slug}
+              theme={theme}
             />
           ))}
         </div>

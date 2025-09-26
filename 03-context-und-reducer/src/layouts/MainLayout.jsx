@@ -11,11 +11,17 @@ export default function MainLayout() {
       .then((data) => setDestinations(data));
   }, []);
 
+  console.log('RENDERIN: MAINLAYOUT');
+
   return (
     <div className='flex flex-col min-h-screen'>
       <NavBar />
       <main className='container mx-auto px-4 py-8 mb-auto'>
-        {destinations ? <Outlet context={destinations} /> : <span className='loading loading-dots loading-xl'></span>}
+        {destinations ? (
+          <Outlet context={{ destinations }} />
+        ) : (
+          <span className='loading loading-dots loading-xl'></span>
+        )}
       </main>
       <Footer />
     </div>
