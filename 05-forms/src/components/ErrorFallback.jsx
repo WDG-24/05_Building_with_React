@@ -1,3 +1,5 @@
+// Fallback-Komponente wird von ErrorBoundary verwenden
+// Hat Zugriff auf Error und kann den Fehler zurücksetzen
 export default function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div className='p-4 bg-red-100 text-red-700 border border-red-300 rounded'>

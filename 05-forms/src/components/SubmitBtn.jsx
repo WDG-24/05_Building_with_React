@@ -1,6 +1,8 @@
 import { useFormStatus } from 'react-dom';
 
 export default function SubmitBtn() {
+  // Hook für clientseitigen Pending-State
+  // Wenn React 19 forms ohne weitere Hooks verwendet wird
   const { pending } = useFormStatus();
   return (
     <button
